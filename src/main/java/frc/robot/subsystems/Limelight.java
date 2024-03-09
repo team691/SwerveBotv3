@@ -91,7 +91,7 @@ public class Limelight extends SubsystemBase {
     // TODO: EDIT LIMELIGHT HARDWARD CONTOURS, SPECIFICALLY THE SORT MODE AND SPECKLES
 
     public void validTarget(double id) {
-        if (tagId() > id)
+        if (tagId() == id)
         {
             vTar = true;
         }
