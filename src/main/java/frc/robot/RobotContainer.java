@@ -90,7 +90,6 @@ public class RobotContainer {
     .andThen(new WaitCommand(1.5))
     .andThen(m_output.stopRun())
     .andThen((Command) new backwardCmd(m_robotDrive, 1.5)));
-    //m_chooser.addOption("New Limelight", (Command) new basicLime2(m_robotDrive, m_lime, m_output));
     SmartDashboard.putData(m_chooser);
   }
 
