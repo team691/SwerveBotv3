@@ -57,6 +57,10 @@ public class RobotContainer {
   // Initialize Sendable Chooser
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
+  // TEST STAGE: Register PathFinder Commands
+
+  // womp womp
+
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
@@ -72,17 +76,6 @@ public class RobotContainer {
     m_robotDrive.setDefaultCommand(
         // The left stick controls translation of the robot.
         // Turning is controlled by the X axis of the right stick.
-        
-        /* 
-        new RunCommand(
-            () -> m_robotDrive.drive(
-                -MathUtil.applyDeadband(m_joystick1.getY()*speedmult, OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_joystick1.getX()*speedmult, OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_joystick2.getZ()*speedmult, OIConstants.kDriveDeadband),
-                true, true),
-            m_robotDrive));
-            */
-
         new RunCommand(
             () -> m_robotDrive.drive(
                 -MathUtil.applyDeadband(m_joystick1.getY()*setSpeed(), OIConstants.kDriveDeadband),
