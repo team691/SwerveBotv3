@@ -260,4 +260,18 @@ public class DriveTrain extends SubsystemBase {
   public double getTurnRate() {
     return m_navx.getYaw() * (DriveConstants.kGyroReversed ? -1.0 : 1.0);
   }
+
+  public void setLimit0(){
+    m_frontLeft.setlimit0();
+    m_rearLeft.setlimit0();
+    m_rearRight.setlimit0();
+    m_frontRight.setlimit0();
+  }
+
+  public void unsettling(){
+    m_frontLeft.unsettling();
+    m_rearLeft.unsettling();
+    m_rearRight.unsettling();
+    m_frontRight.unsettling();
+  }
 }

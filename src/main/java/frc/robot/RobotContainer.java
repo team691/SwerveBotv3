@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 //import frc.robot.Constants.DriveConstants;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.basicLime;
+import frc.robot.commands.forwardCmd;
 //import frc.robot.commands.basicLime2;
 import frc.robot.commands.backwardCmd;
 import frc.robot.subsystems.DriveTrain;
@@ -91,7 +92,7 @@ public class RobotContainer {
             m_robotDrive));
 
     m_chooser.setDefaultOption("Wait", new WaitCommand(15));
-    m_chooser.addOption("Drive Out of Start", (Command) new backwardCmd(m_robotDrive, 2.5));
+    m_chooser.addOption("Drive Out of Start", (Command) new forwardCmd(m_robotDrive, 2.5));
     m_chooser.addOption("LimeTrack", (Command) new basicLime(m_robotDrive, m_lime, m_output)
     .andThen(new WaitCommand(1.5))
     .andThen(m_output.stopRun())
@@ -139,8 +140,10 @@ public class RobotContainer {
             
             // This button for the OPERATOR fires the lower speaker motor
     new JoystickButton(m_operator, 6)
-        .onTrue(m_output.SpeakerShoot2())
-        .onFalse(m_output.stopRunLower());
+        .onTrue(m_output.SpeakerShoot2().alongWith(new RunCommand(
+            () -> m_robotDrive.setLimit0())))
+        .onFalse(m_output.stopRunLower().alongWith(new RunCommand(
+            () -> m_robotDrive.unsettling())));
         
             // This button for the OPERATOR fires the upper speaker motor (prep)
     new JoystickButton(m_operator, 4)

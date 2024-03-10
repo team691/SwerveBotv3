@@ -108,12 +108,12 @@ public class Chuck extends SubsystemBase{
 
     // Command functions
     public void cmdPrep() {
-        motor10.set(20);
+        motor10.set(40);
         //motor11.set(TalonFXControlMode.PercentOutput, ChuckConstants.speakerspeed);
     }
 
     public void cmdFireNT() {
-        motor11.set(20);
+        motor11.set(15);
         //motor11.set(TalonFXControlMode.PercentOutput, ChuckConstants.speakerspeed);
     }
 
