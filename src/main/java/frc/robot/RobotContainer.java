@@ -237,7 +237,7 @@ public class RobotContainer {
             return 4.0;
         }
         else {
-            return 8.0;
+            return 7.8;
         }
     }
 
