@@ -44,7 +44,7 @@ public class RobotContainer {
   private final Climber m_climber = new Climber();
   private final Limelight m_lime = new Limelight();
   private final Lights m_lights = new Lights();
-  public double speedmult = 6.0;
+  public double speedmult = 8.0;
   // test
   //private final Lights m_lights = new Lights();
 
@@ -140,10 +140,12 @@ public class RobotContainer {
             
             // This button for the OPERATOR fires the lower speaker motor
     new JoystickButton(m_operator, 6)
-        .onTrue(m_output.SpeakerShoot2().alongWith(new RunCommand(
-            () -> m_robotDrive.setLimit1())))
-        .onFalse(m_output.stopRunLower().alongWith(new RunCommand(
-            () -> m_robotDrive.unsettling())));
+        .onTrue(m_output.SpeakerShoot2()//.alongWith(new RunCommand(
+            //() -> m_robotDrive.setLimit1()))
+            )
+        .onFalse(m_output.stopRunLower()//.andThen(new RunCommand(
+            //() -> m_robotDrive.unsettling()))
+            );
         
             // This button for the OPERATOR fires the upper speaker motor (prep)
     new JoystickButton(m_operator, 4)
@@ -232,10 +234,10 @@ public class RobotContainer {
     //SPEED CMD
     public double setSpeed() {
         if (m_joystick1.getRawButton(1) == true) {
-            return 3.0;
+            return 4.0;
         }
         else {
-            return 6.0;
+            return 8.0;
         }
     }
 
