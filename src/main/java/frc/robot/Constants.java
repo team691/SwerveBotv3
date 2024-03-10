@@ -110,6 +110,8 @@ public final class Constants {
 
     public static final int kDrivingMotorCurrentLimit = 50; // amps
     public static final int kTurningMotorCurrentLimit = 20; // amps
+
+    public static final double kRadiusFromModule = 0.5;
   }
 
   public static final class OIConstants {

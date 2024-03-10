@@ -14,10 +14,17 @@ import frc.robot.SwerveUtils;
 // Position imports
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SPI;
 // Constants
 import frc.robot.Constants.DriveConstants;
+import frc.robot.Constants.ModuleConstants;
+
 import com.kauailabs.navx.frc.AHRS;
+import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
+import com.pathplanner.lib.util.PIDConstants;
+import com.pathplanner.lib.util.ReplanningConfig;
 
 /* The DriveTrain class handles the drive subsystem of the robot.
  * Configured for REV Robotics Swerve Modules
@@ -78,7 +85,29 @@ public class DriveTrain extends SubsystemBase {
 
   // Creates new Drive Subsystem
   public DriveTrain() {
-  }
+    // Autobuilder initialization
+    AutoBuilder.configureHolonomic(
+      this::getPose,
+      this::resetOdometry,
+      this::getChassisSpeeds,
+      this::driveRobotRelative,
+      new HolonomicPathFollowerConfig(
+        new PIDConstants(4.0, 0.0, 0.0),
+        new PIDConstants(4.0, 0.0, 0.0),
+        DriveConstants.kMaxSpeedMetersPerSecond,
+        ModuleConstants.kRadiusFromModule,
+        new ReplanningConfig()
+      ),
+      () -> {
+        var alliance = DriverStation.getAlliance();
+        if (alliance.isPresent()) {
+          return alliance.get() == DriverStation.Alliance.Red;
+        }
+          return false;
+        },
+        this
+      );
+    }
 
   // Updates odometry periodically
   public void periodic() {
@@ -206,6 +235,18 @@ public class DriveTrain extends SubsystemBase {
         SwerveModuleState[] moduleStates = DriveConstants.kDriveKinematics.toSwerveModuleStates(chassisSpeeds);
 
         setModuleStates(moduleStates);
+  }
+
+  public ChassisSpeeds getChassisSpeeds() {
+    return DriveConstants.kDriveKinematics.toChassisSpeeds(
+      m_frontLeft.getState(),
+      m_frontRight.getState(),
+      m_rearLeft.getState(),
+      m_rearRight.getState());
+  }
+
+  public void driveRobotRelative(ChassisSpeeds speeds){
+    this.drive(speeds.vxMetersPerSecond,speeds.vyMetersPerSecond,speeds.omegaRadiansPerSecond,true, true);
   }
 
   /* Drive command, stop function
