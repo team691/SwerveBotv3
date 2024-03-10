@@ -135,7 +135,7 @@ public class RobotContainer {
         .onTrue(m_output.SpeakerShoot2()//.alongWith(new RunCommand(
             //() -> m_robotDrive.setLimit1()))
             )
-        .onFalse(m_output.stopRunLower()//.andThen(new RunCommand(
+        .onFalse(m_output.stopRunLower()//.alongWith(new RunCommand(
             //() -> m_robotDrive.unsettling()))
             );
         
