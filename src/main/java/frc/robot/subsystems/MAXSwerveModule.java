@@ -166,7 +166,7 @@ public class MAXSwerveModule {
   public void resetEncoders() {
     m_drivingEncoder.setPosition(0);
   }
-  public void setlimit0() {
+  public void setlimit1() {
     m_drivingSparkMax.setSmartCurrentLimit(1);
     m_turningSparkMax.setSmartCurrentLimit(1);
   }

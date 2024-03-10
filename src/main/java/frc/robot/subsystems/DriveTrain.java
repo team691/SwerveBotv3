@@ -261,11 +261,11 @@ public class DriveTrain extends SubsystemBase {
     return m_navx.getYaw() * (DriveConstants.kGyroReversed ? -1.0 : 1.0);
   }
 
-  public void setLimit0(){
-    m_frontLeft.setlimit0();
-    m_rearLeft.setlimit0();
-    m_rearRight.setlimit0();
-    m_frontRight.setlimit0();
+  public void setLimit1(){
+    m_frontLeft.setlimit1();
+    m_rearLeft.setlimit1();
+    m_rearRight.setlimit1();
+    m_frontRight.setlimit1();
   }
 
   public void unsettling(){

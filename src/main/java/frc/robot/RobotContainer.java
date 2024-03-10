@@ -87,7 +87,7 @@ public class RobotContainer {
             () -> m_robotDrive.drive(
                 -MathUtil.applyDeadband(m_joystick1.getY()*setSpeed(), OIConstants.kDriveDeadband),
                 -MathUtil.applyDeadband(m_joystick1.getX()*setSpeed(), OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_joystick2.getZ()*setSpeed(), OIConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_joystick2.getZ()*3.5, OIConstants.kDriveDeadband),
                 true, true),
             m_robotDrive));
 
@@ -141,7 +141,7 @@ public class RobotContainer {
             // This button for the OPERATOR fires the lower speaker motor
     new JoystickButton(m_operator, 6)
         .onTrue(m_output.SpeakerShoot2().alongWith(new RunCommand(
-            () -> m_robotDrive.setLimit0())))
+            () -> m_robotDrive.setLimit1())))
         .onFalse(m_output.stopRunLower().alongWith(new RunCommand(
             () -> m_robotDrive.unsettling())));
         
@@ -175,6 +175,16 @@ public class RobotContainer {
         () -> m_lights.ledYellow(),
         () -> m_lights.ledGreen(),
         m_lights));
+
+    new JoystickButton(m_joystick1, 1)
+        //.whileTrue(new RunCommand(
+        //() -> m_robotDrive.setLimit1()
+        //));
+        .onTrue(new RunCommand(
+            () -> m_robotDrive.setLimit1()))
+        .onFalse(new RunCommand(
+            () -> m_robotDrive.unsettling()));
+
 
     //  !! SKETCHY TEST COMMANDS !!
 
