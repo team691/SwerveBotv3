@@ -4,6 +4,8 @@
 
 package frc.robot;
 
+import com.pathplanner.lib.auto.AutoBuilder;
+
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.PS4Controller.Button;
@@ -67,7 +69,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-    
+
+    // Add PathPlanner autonomous
+    m_chooser = AutoBuilder.buildAutoChooser();
 
     // Ignore controller warnings
     DriverStation.silenceJoystickConnectionWarning(true);
