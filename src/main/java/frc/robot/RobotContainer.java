@@ -7,6 +7,7 @@ package frc.robot;
 import com.pathplanner.lib.auto.AutoBuilder;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.PS4Controller.Button;
 import edu.wpi.first.wpilibj.Joystick;
@@ -81,12 +82,13 @@ public class RobotContainer {
         // The left stick controls translation of the robot.
         // Turning is controlled by the X axis of the right stick.
         new RunCommand(
-            () -> m_robotDrive.drive(
+            () -> m_robotDrive.driveRobotRelative(
+            new ChassisSpeeds(
                 -MathUtil.applyDeadband(m_joystick1.getY()*setSpeed(), OIConstants.kDriveDeadband),
                 -MathUtil.applyDeadband(m_joystick1.getX()*setSpeed(), OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_joystick2.getZ()*3.5, OIConstants.kDriveDeadband),
-                true, true),
-            m_robotDrive));
+                -MathUtil.applyDeadband(m_joystick2.getZ()*3.5, OIConstants.kDriveDeadband)
+                /*,true, true)*/)/* ,
+            m_robotDrive*/)));
 
     m_chooser.setDefaultOption("Wait", new WaitCommand(15));
     m_chooser.addOption("Drive Out of Start", (Command) new forwardCmd(m_robotDrive, 2.5));
