@@ -86,15 +86,16 @@ public class RobotContainer {
             new ChassisSpeeds(
                 -MathUtil.applyDeadband(m_joystick1.getY()*setSpeed(), OIConstants.kDriveDeadband),
                 -MathUtil.applyDeadband(m_joystick1.getX()*setSpeed(), OIConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_joystick2.getZ()*3.5, OIConstants.kDriveDeadband)
+                -MathUtil.applyDeadband(m_joystick2.getZ()*setSpeed(), OIConstants.kDriveDeadband)
 
                 //m_joystick1.getY()*setSpeed(),
                 //m_joystick1.getX()*setSpeed(),
                 //m_joystick2.getZ()*3.5
 
                 /*,true, true)*/)/* ,
-            m_robotDrive*/)));
+            m_robotDrive*/), m_robotDrive));
 
+          //  m_chooser = AutoBuilder.buildAutoChooser("New Auto");
     m_chooser.setDefaultOption("Wait", new WaitCommand(15));
     m_chooser.addOption("Drive Out of Start", (Command) new forwardCmd(m_robotDrive, 2.5));
     m_chooser.addOption("LimeTrack", (Command) new basicLime(m_robotDrive, m_lime, m_output)
@@ -239,10 +240,10 @@ public class RobotContainer {
     //SPEED CMD
     public double setSpeed() {
         if (m_joystick1.getRawButton(1) == true) {
-            return 4.0;
+            return 1.3;//4.0;
         }
         else {
-            return 7.8;
+            return 3.6;//7.8;
         }
     }
 

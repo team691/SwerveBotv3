@@ -51,7 +51,7 @@ public class Chuck extends SubsystemBase{
     public Command SpeakerShoot() {
         return run(
             () -> {
-                motor10.set(20);
+                motor10.set(99);
                 //motor11.set(TalonFXControlMode.PercentOutput, ChuckConstants.speakerspeed);
             });
     }
@@ -59,7 +59,7 @@ public class Chuck extends SubsystemBase{
     public Command SpeakerShoot2() {
         return run(
             () -> {
-                motor11.set(20);
+                motor11.set(99);
             });
     }
     
