@@ -85,11 +85,6 @@ public class Limelight extends SubsystemBase {
         LEDModeEntry.setNumber(mode.getCodeValue());
     }
 
-    // Check for valid target (disregard is the range/area where target should be ignored)
-    // TODO: verify this works???
-
-    // TODO: EDIT LIMELIGHT HARDWARD CONTOURS, SPECIFICALLY THE SORT MODE AND SPECKLES
-
     public void validTarget(double id) {
         if (tagId() == id)
         {

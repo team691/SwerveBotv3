@@ -12,14 +12,7 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkBase.IdleMode;
 
-// used for "output" in order to throw note into goal
-
-// TODO: Potentially use limelight to only allow shooting of the ring IF limelight is aligned with the target (requires offsets and knowing where it'll be placed)
-
 public class Chuck extends SubsystemBase{
-
-    // Motors
-    
 
     // Speaker motors
     private final TalonFX motor10 = new TalonFX(ChuckConstants.id10);
