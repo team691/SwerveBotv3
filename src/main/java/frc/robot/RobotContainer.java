@@ -128,10 +128,9 @@ public class RobotContainer {
         m_climber));
 
             // This button for the OPERATOR will intake the speaker motors
-    new JoystickButton(m_operator,2)
+    new JoystickButton(m_operator, 2)
         .onTrue(m_output.IntakeRing())
         .onFalse(m_output.stopRun());
-
         
             // This button for the OPERATOR fires the upper speaker motor (prep)
     new JoystickButton(m_operator, 4)
