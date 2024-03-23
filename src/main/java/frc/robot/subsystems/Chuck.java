@@ -36,36 +36,16 @@ public class Chuck extends SubsystemBase{
     public Command IntakeRing() {
         return run(
             () -> {
-                motor10.set(-3.5);
-                motor11.set(-3.5);
+                motor10.set(-3.0);
+                motor11.set(3.0);
             });
     }
 
     public Command SpeakerShoot() {
         return run(
             () -> {
-                motor10.set(99);
-                //motor11.set(TalonFXControlMode.PercentOutput, ChuckConstants.speakerspeed);
-            });
-    }
-
-    public Command SpeakerShoot2() {
-        return run(
-            () -> {
-                motor11.set(99);
-            });
-    }
-    
-    public Command AmpIntake() {
-        return run(
-            () -> {
-                motor12.set(-5);
-            });
-    }
-    public Command AmpShoot() {
-        return run(
-            () -> {
-                motor12.set(30);
+                motor10.set(20);
+                motor11.set(-20);
             });
     }
 
@@ -74,28 +54,6 @@ public class Chuck extends SubsystemBase{
             () -> {
                 motor10.set(0);
                 motor11.set(0);
-                motor12.set(0);
-            });
-        }
-
-    public Command stopRunLower() {
-        return run(
-            () -> {
-                motor11.set(0);
-            });
-        }
-
-    public Command stopRunUpper() {
-        return run(
-            () -> {
-                motor10.set(0);
-            });
-    }
-
-    public Command stopRunAmp() {
-        return run(
-            () -> {
-                motor12.set(0.0);
             });
     }
 

@@ -132,33 +132,10 @@ public class RobotContainer {
         .onTrue(m_output.IntakeRing())
         .onFalse(m_output.stopRun());
 
-            // This button for the OPERATOR will fire the amp motor
-    new JoystickButton(m_operator,3)
-        .onTrue(m_output.AmpShoot())
-        .onFalse(m_output.stopRunAmp());
-
-            // This button for the OPERATOR will intake the amp motor
-    new JoystickButton(m_operator,1)
-        .onTrue(m_output.AmpIntake())
-        .onFalse(m_output.stopRunAmp());
-            
-            // This button for the OPERATOR fires the lower speaker motor
-    new JoystickButton(m_operator, 6)
-        .onTrue(m_output.SpeakerShoot2()//.alongWith(new RunCommand(
-            //() -> m_robotDrive.setLimit1()))
-            )
-        .onFalse(m_output.stopRunLower()//.alongWith(new RunCommand(
-            //() -> m_robotDrive.unsettling()))
-            );
         
             // This button for the OPERATOR fires the upper speaker motor (prep)
     new JoystickButton(m_operator, 4)
         .onTrue(m_output.SpeakerShoot())
-        .onFalse(m_output.stopRunUpper());
-
-            // This button for the OPERATOR will fire the amp motor    
-    new JoystickButton(m_operator, 5)
-        .onTrue(m_output.AmpShoot())
         .onFalse(m_output.stopRun());
 
             // Supposed Accuate Function (OPERATOR)
