@@ -36,16 +36,16 @@ public class Chuck extends SubsystemBase{
     public Command IntakeRing() {
         return run(
             () -> {
-                motor10.set(-1.0);
-                motor11.set(1.0);
+                motor10.set(.25);
+                motor11.set(.25);
             });
     }
 
     public Command SpeakerShoot() {
         return run(
             () -> {
-                motor10.set(1);
-                motor11.set(-1);
+                motor10.set(-1.5);
+                motor11.set(-1.5);
             });
     }
 
