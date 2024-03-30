@@ -137,6 +137,11 @@ public class RobotContainer {
         .onTrue(m_output.SpeakerShoot())
         .onFalse(m_output.stopRun());
 
+            // This button for the OPERATOR fires the lower speaker motor (fire)
+    new JoystickButton(m_operator, 6)
+        .onTrue(m_output.LaunchShot())
+        .onFalse(m_output.stopLaunch());
+
             // Supposed Accuate Function (OPERATOR)
     new JoystickButton(m_operator, 12)
         .toggleOnTrue(Commands.startEnd(

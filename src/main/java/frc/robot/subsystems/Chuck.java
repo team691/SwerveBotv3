@@ -49,11 +49,25 @@ public class Chuck extends SubsystemBase{
             });
     }
 
+    public Command LaunchShot() {
+        return run(
+            () -> {
+                motor12.set(5.0);
+            });
+    }
+
     public Command stopRun() {
         return run(
             () -> {
-                motor10.set(0);
-                motor11.set(0);
+                motor10.set(0.0);
+                motor11.set(0.0);
+            });
+    }
+
+    public Command stopLaunch() {
+        return run(
+            () -> {
+                motor12.set(0.0);
             });
     }
 
