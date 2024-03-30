@@ -38,6 +38,7 @@ public class Chuck extends SubsystemBase{
             () -> {
                 motor10.set(.25);
                 motor11.set(.25);
+                motor12.set(-5.0);
             });
     }
 
@@ -53,6 +54,15 @@ public class Chuck extends SubsystemBase{
         return run(
             () -> {
                 motor12.set(5.0);
+            });
+    }
+
+    public Command stopIntake() {
+        return run(
+            () -> {
+                motor10.set(0);
+                motor11.set(0);
+                motor12.set(0);
             });
     }
 
