@@ -13,7 +13,7 @@ import frc.robot.subsystems.DriveTrain;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class shootbackout extends SequentialCommandGroup {
     private Chuck m_output;
-    private final DriveTrain m_robotDrive = new DriveTrain();
+    private DriveTrain m_robotDrive;
     //private final Timer m_timer = new Timer();
   
   /** Creates a new shootbackout. */
