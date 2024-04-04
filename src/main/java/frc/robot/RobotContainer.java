@@ -221,10 +221,10 @@ public class RobotContainer {
     //SPEED CMD
     public double setSpeed() {
         if (m_joystick2.getRawButton(1) == true) {
-            return 1.3;//4.0;
+            return 2.0;//4.0;
         }
         else {
-            return 3.6;//7.8;
+            return 6.5;//7.8;
         }
     }
 
