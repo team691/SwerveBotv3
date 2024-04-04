@@ -51,7 +51,7 @@ public class basicLime2 extends Command{
         // If command ends or is interrupted, calls the method
         public void end(boolean interrupted) {
           m_chuck.cmdPrep();
-          m_chuck.cmdFireNT();  
+          m_chuck.cmdLaunch();  
           m_chuck.stopRun();
         }
     
