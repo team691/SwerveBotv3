@@ -4,11 +4,8 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.subsystems.Chuck;
-import frc.robot.commands.fiRing;
-import frc.robot.commands.forwardCmd;
 import frc.robot.subsystems.DriveTrain;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
@@ -16,20 +13,15 @@ import frc.robot.subsystems.DriveTrain;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class shootbackout extends SequentialCommandGroup {
     private Chuck m_output;
-    private final double m_timeout;
     private final DriveTrain m_robotDrive = new DriveTrain();
-    private final Timer m_timer = new Timer();
-    m_timer.reset();
-    m_timer.start();
+    //private final Timer m_timer = new Timer();
   
   /** Creates a new shootbackout. */
-  public void shootbackout(double timeout) {
+  public void shootBackout() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
 
-    if (m_timer.get() == 4) {
-    addCommands(new fiRing(m_output, m_timeout));
-    addCommands(new forwardCmd(m_robotDrive, m_timeout));
-    }
+    addCommands(new fiRing(m_output, 4.0));
+    addCommands(new forwardCmd(m_robotDrive, 4.0));
   }
 }

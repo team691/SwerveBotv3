@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.basicLime;
 import frc.robot.commands.forwardCmd;
+import frc.robot.commands.shootbackout;
 //import frc.robot.commands.basicLime2;
 import frc.robot.commands.backwardCmd;
 import frc.robot.subsystems.DriveTrain;
@@ -102,6 +103,7 @@ public class RobotContainer {
     .andThen(new WaitCommand(1.5))
     .andThen(m_output.stopRun())
     .andThen((Command) new backwardCmd(m_robotDrive, 1.5)));
+    m_chooser.addOption("Shoot Back Out", (Command) new shootbackout());
     SmartDashboard.putData(m_chooser);
   }
 
@@ -221,7 +223,7 @@ public class RobotContainer {
     //SPEED CMD
     public double setSpeed() {
         if (m_joystick2.getRawButton(1) == true) {
-            return 2.0;//4.0;
+            return 1.7;//4.0;
         }
         else {
             return 6.5;//7.8;
